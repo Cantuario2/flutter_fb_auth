@@ -85,7 +85,6 @@ class _SignInFormState extends State<SignInForm> {
                       _errorFeedback = 'Incorrect login credentials';
                     });
                   }
-                  print('Logged succesfully! Uid: ${user!.uid.toString()}');
                 }
               },
               child: const StyledButtonText('Sign In'),

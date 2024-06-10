@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_fb_auth/models/app_user.dart';
 import 'package:flutter_fb_auth/services/auth_service.dart';
 import 'package:flutter_fb_auth/shared/styled_button.dart';
 import 'package:flutter_fb_auth/shared/styled_text.dart';
 
 class ProfileScreen extends StatelessWidget {
-  const ProfileScreen({super.key});
+  const ProfileScreen({super.key, required this.user});
+
+  final AppUser user;
 
   @override
   Widget build(BuildContext context) {
@@ -21,11 +24,16 @@ class ProfileScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const StyledHeading('Profile'),
+            StyledHeading('${user.email.split('@')[0]}\'s Profile'),
             const SizedBox(
               height: 16.0,
             ),
             //output user
+            StyledBodyText('Welcome to your profile ${user.email}'),
+            const SizedBox(
+              height: 16.0,
+            ),
+
             StyledButton(
                 onPressed: () {
                   AuthService.signOut();

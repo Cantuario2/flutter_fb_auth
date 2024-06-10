@@ -88,7 +88,6 @@ class _SignUpFormState extends State<SignUpForm> {
                       _errorFeedback = 'Could not sign up with those details';
                     });
                   }
-                  print('Created succesfully! Uid: ${user!.uid.toString()}');
                 }
               },
               child: const StyledButtonText('Sign Up'),

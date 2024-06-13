@@ -23,51 +23,54 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
         centerTitle: true,
       ),
       body: SingleChildScrollView(
-        child: Container(
-            padding: const EdgeInsets.symmetric(vertical: 48, horizontal: 16),
-            child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  const StyledHeading('Cantuario2 says Welcome.'),
-                  //Conditional to choose whitch form
-                  if (isSignUpForm)
-                    Column(
-                      children: [
-                        const SignUpForm(),
-                        const StyledBodyText('Already have an account?'),
-                        TextButton(
-                          onPressed: () {
-                            setState(() {
-                              isSignUpForm = false;
-                            });
-                          },
-                          child: Text(
-                            'Sign in instead',
-                            style: GoogleFonts.poppins(),
+        child: Center(
+          child: Container(
+              constraints: const BoxConstraints(maxWidth: 500),
+              padding: const EdgeInsets.symmetric(vertical: 48, horizontal: 16),
+              child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    const StyledHeading('Cantuario2 says Welcome.'),
+                    //Conditional to choose whitch form
+                    if (isSignUpForm)
+                      Column(
+                        children: [
+                          const SignUpForm(),
+                          const StyledBodyText('Already have an account?'),
+                          TextButton(
+                            onPressed: () {
+                              setState(() {
+                                isSignUpForm = false;
+                              });
+                            },
+                            child: Text(
+                              'Sign in instead',
+                              style: GoogleFonts.poppins(),
+                            ),
                           ),
-                        ),
-                      ],
-                    ),
+                        ],
+                      ),
 
-                  if (!isSignUpForm)
-                    Column(
-                      children: [
-                        const SignInForm(),
-                        const StyledBodyText('Need an account?'),
-                        TextButton(
-                          onPressed: () {
-                            setState(() {
-                              isSignUpForm = true;
-                            });
-                          },
-                          child: Text(
-                            'Sign up instead',
-                            style: GoogleFonts.poppins(),
+                    if (!isSignUpForm)
+                      Column(
+                        children: [
+                          const SignInForm(),
+                          const StyledBodyText('Need an account?'),
+                          TextButton(
+                            onPressed: () {
+                              setState(() {
+                                isSignUpForm = true;
+                              });
+                            },
+                            child: Text(
+                              'Sign up instead',
+                              style: GoogleFonts.poppins(),
+                            ),
                           ),
-                        ),
-                      ],
-                    ),
-                ])),
+                        ],
+                      ),
+                  ])),
+        ),
       ),
     );
   }
